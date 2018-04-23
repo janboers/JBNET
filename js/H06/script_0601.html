@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>window.load()</title>
+	<script>
+		// Voer script uit zodra de pagina helemaal geladen is.
+		window.onload = function () {
+			document.getElementById('divResult').innerHTML = 'Het document is geladen';
+		}
+
+		// Andere schrijfwijze, hetzelfde resultaat
+		//window.addEventListener('load', function () {
+		//	document.getElementById('divResult').innerHTML = 'Het document is geladen';
+		//});
+	</script>
+</head>
+
+<body>
+	<h2>De event window.load</h2>
+	<div id="divResult"></div>
+</body>
+</html>

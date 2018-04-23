@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<style>
+		input.error {
+			background-color: #fcc;
+			color: #000;
+		}
+
+		.error {
+			color: #f00;
+			font-weight: bold;
+		}
+
+		input.valid {
+			background-color: #99FF00;
+		}
+	</style>
+	<title>jQuery plug-ins: form validation</title>
+	<!-- jQuery insluiten -->
+	<script src="../script/jquery-1.9.1.min.js"></script>
+
+	<!-- Validator insluiten en taalbestand toevoegen -->
+	<script src="../script/plugins/jquery.validate.js"></script>
+	<script src="../script/plugins/messages_nl.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('#form1').validate();
+		});
+	</script>
+</head>
+
+<body>
+	<h2>De plug-in Form validation</h2>
+	<form id="form1" method="get" action="">
+		<fieldset>
+			<legend>Vul de diverse gegevens in, houd rekening met de eisen per veld</legend>
+			<p>
+				<label for="naam">Uw naam(verplicht, minimaal 2, maximaal 15 tekens)</label>
+				<input id="naam" minlength="2" maxlength="15" type="text" required />
+			</p>
+			<p>
+				<label for="email">E-mailadres (verplicht)</label>
+				<input id="email" type="email" name="email" required />
+			</p>
+			<p>
+				<label for="url">URL (optioneel)</label>
+				<input id="url" type="url" name="url" />
+			</p>
+			<p>
+				<label for="opmerkingen">Uw opmerkingen (verplicht)</label>
+				<textarea id="opmerkingen" required></textarea>
+			</p>
+			<p>
+				<input type="submit" value="Verzenden" />
+			</p>
+		</fieldset>
+	</form>
+	<hr />
+	<div id="credits">
+		Credits <a href="http://jqueryvalidation.org/documentation/" target="_blank">jQueryValidation.org</a>
+	</div>
+</body>
+</html>
+
+

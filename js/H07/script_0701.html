@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>window.load()</title>
+	<script>
+		// Voer script uit zodra de pagina helemaal geladen is.
+		window.onload = function () {
+			document.getElementById('btnKnop1').onclick = function () {
+				var paragrafen = document.getElementsByTagName('p');				
+				for (var i = 0; i < paragrafen.length; i++) {
+					paragrafen[i].style.backgroundColor = 'green';
+				}
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<h2>document.getElementsByTagName</h2>
+	<p>De eerste paragraaf</p>
+	<p>De tweede paragraaf</p>
+	<p>De derde paragraaf</p>
+	<p>De vierde paragraaf</p>
+	<button	id="btnKnop1">Maak groen!</button>
+</body>
+</html>

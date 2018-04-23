@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<style>
+		#divResult {
+			border: 1px solid #999;
+			background-color: #ffc;
+			padding: 4px;
+			width: 400px;
+			height: 200px;
+			overflow-y: scroll;
+		}
+	</style>
+	<title>jQuery ajax: get weather</title>
+	<!-- jQuery insluiten -->
+	<script src="../script/jquery-1.9.1.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			// Algemene instellingen voor elke AJAX-call
+			$.ajaxSetup({
+				// standaardinstellingen voor gegevenstype:
+				dataType: 'jsonp',
+				contentType: 'application/json',
+
+				// standaard error handling:
+				error: function (jqXhr, textStatus, errorThrown) {
+					alert('Er is een fout opgetreden: ' + textStatus);
+					// Doe evt. meer met foutcontrole
+				}
+			});
+
+
+			// Weer voor gezochte stad ophalen bij klik op knop
+			$('#btnGetWeather').on('click', function () {
+				var weatherUrl = 'http://api.openweathermap.org/data/2.1/find/name?&q=';
+				weatherUrl += $('#txtCity').val();
+				weatherUrl += '&units=metric&lang=nl';
+
+				$.ajax({
+					url: weatherUrl,				
+					success: function (weather) {
+						console.log(weather);
+						$('#divResult').empty();
+						// alles OK.							
+						var steden = weather.list;
+						for (var i = 0; i < steden.length; i++) {
+							var html = '<strong><a href="' + steden[i].url;
+							html += '" target="_blank">' + steden[i].name;
+							html += ' (' + steden[i].sys.country + ')</a></strong>';
+							html += ', temperatuur: ' + steden[i].main.temp + ' graden.<br />';
+							$('#divResult').append(html);
+						}
+					}					
+				});
+
+			});
+		});
+
+	</script>
+</head>
+
+<body>
+	<h2>Wat voor weer is het in...</h2>
+	<input type="text" id="txtCity" placeholder="Plaatsnaam" />
+	<button id="btnGetWeather">Wat voor weer is het?</button>
+	<div id="divResult"></div>
+</body>
+</html>
+
+

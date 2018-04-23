@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<style>
+		#divLoader {
+			text-align: center;
+			display: none;
+		}
+	</style>
+	<title>jQuery ajax: ajax events</title>
+	<!-- jQuery insluiten -->
+	<script src="../script/jquery-1.9.1.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			// Functie uitvoeren als Ajax call wordt gestart en gestopt
+			$(document).ajaxStart(function () {
+				$('#divLoader').show();
+				$('#divResult').append('<p>Ajax call gestart</p>');
+			});
+
+			$(document).ajaxStop(function () {
+				$('#divLoader').hide();
+				$('#divResult').append('<p>Ajax call gereed</p>');
+			});
+
+
+			// Algemene instellingen voor elke AJAX-call
+			$.ajaxSetup({
+				// standaardinstellingen voor gegevenstype:
+				dataType: 'jsonp',
+				contentType: 'application/json',
+
+				// standaard error handling:
+				error: function (jqXhr, textStatus, errorThrown) {
+					alert('Er is een fout opgetreden: ' + textStatus);
+					// Doe evt. meer met foutcontrole
+				}
+			});
+			// Weer voor gezochte stad ophalen bij klik op knop
+			$('#btnAjax').on('click', function () {
+				var weatherUrl = 'http://api.openweathermap.org/data/2.1/find/name?&q=london,uk';
+				weatherUrl += '&units=metric&lang=nl';
+				$('#divLoader').show();
+				$('#divResult').append('<p>Ajax call gestart</p>');
+
+				$.ajax({
+					url: weatherUrl,
+					success: function (weather) {
+						console.log(weather);
+						$('#divResult').empty();
+						// alles OK.							
+						var steden = weather.list;
+						$('#divResult').append('<p>Gevonden steden: ' + steden.length + ', '+ steden.list[0].name +'. </p>');
+						$('#divLoader').hide();
+						$('#divResult').append('<p>Ajax call gereed</p>');
+					}
+				});
+
+			});
+		});
+
+	</script>
+</head>
+
+<body>
+	<h2>Loading indicator</h2>
+	<button id="btnAjax">Start Ajax Call</button>
+	<div id="divResult"></div>
+	<div id="divLoader">
+		<img src="img/loader.gif" />
+	</div>
+
+</body>
+</html>
+
+

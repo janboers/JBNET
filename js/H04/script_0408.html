@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Array.sort()</title>
+</head>
+
+<body>
+	<h1>Array.sort()</h1>
+	<div id="divResult"></div>
+
+	<script>
+		// Array.sort - sorteert de elementen in de array op alfabetische volgorde.
+		var mijnArray = ['rood', 'geel', 'blauw', 'groen', 'zwart', 'wit'];
+		mijnArray.sort();
+		console.log(mijnArray); // ["blauw", "geel", "groen", "rood", "wit", "zwart"] 
+
+
+		// Sorteren met een eigen sorteerfunctie. De volgende functie
+		// sorteert hoofdletteronafhankelijk
+		var mijnArray = ['beer', 'Aap', 'Dolfijn', 'chihuahua', 'Ezel'];
+		console.log(mijnArray.sort()); // hoofdletterAFhankelijk, ["Aap", "Dolfijn", "Ezel", "beer", "chihuahua"] 
+		mijnArray.sort(function (a, b) {
+			var x = a.toLowerCase();
+			var y = b.toLowerCase();
+			if (x < y) {
+				return -1;
+			}
+			if (x > y) {
+				return 1;
+			}
+			return 0;
+		});
+		console.log(mijnArray); // hoofdletterONafhankelijk, ["Aap", "beer", "chihuahua", "Dolfijn", "Ezel"] 
+
+
+	</script>
+</body>
+</html>

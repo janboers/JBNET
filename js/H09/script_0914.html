@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>jQuery CSS- en HTML-functies</title>
+	<!-- CSS -->
+	<style>
+	body{
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:24px;
+	}
+	.blauw{
+		color: #06F;
+	}
+	</style>
+	<!-- jQuery insluiten -->
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script>
+	$(document).ready(function() {
+		// .append() en .prepend() 
+		$('#divResult').append('<p>Deze tekst wordt achteraan toegevoegd</p>');
+		$('#divResult').prepend('<p>Deze tekst wordt vooraan toegevoegd</p>');
+		
+
+		// .before() en .after()
+		$('#divResult').before('<p>Ingevoegd met .before()</p>');
+		$('#divResult').after('<p>Ingevoegd met .after()</p>');
+
+	}); // einde document.ready
+	</script>
+</head>
+
+<body>
+	<div id="divResult"></div>
+</body>
+</html>

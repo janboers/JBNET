@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>getElementsByClassName()</title>
+	<style>
+	 .geel{
+		 background-color: yellow;
+	 }
+
+	</style>
+	<script>
+		// Voer script uit zodra de pagina helemaal geladen is.
+		window.onload = function () {
+			// selecteer alle elementen met de klasse 'geel' op de pagina.
+			document.getElementById('btnKnop1').onclick = function () {
+				var geel = document.getElementsByClassName('geel');				
+				for (var i = 0; i < geel.length; i++) {
+					document.getElementById('divResult').innerHTML +=
+						geel[i].innerHTML + '<br />';
+				}
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<h2>document.getElementsByTagName</h2>
+	<p class="geel">De eerste paragraaf</p>
+	<p>De tweede paragraaf</p>
+	<p class="geel">De derde paragraaf</p>
+	<p>De vierde paragraaf</p>
+	<button	id="btnKnop1">Welke paragrafen zijn geel?</button>
+	<div id="divResult"></div>
+</body>
+</html>

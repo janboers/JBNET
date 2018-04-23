@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<style>
+		#imgContainer img {
+			height: 300px;
+		}
+	</style>
+	<title>jQuery plug-ins: cycle</title>
+	<!-- jQuery insluiten -->
+	<script src="../script/jquery-1.9.1.min.js"></script>
+	<script src="../script/plugins/jquery.cycle2.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			// Plug-in laden met configuratieobject
+			$('#imgContainer').cycle({
+				'speed': '250',
+				'random': true,
+			});
+
+			// Dit is hetzelfde als:
+			//var cycleOptions = {
+			//	'speed': '250',
+			//	'random': true,
+			//};
+			//$('#imgContainer').cycle(cycleOptions);
+		});
+
+	</script>
+</head>
+
+<body>
+	<h2>De plug-in Cycle2</h2>
+	<div id="imgContainer">
+		<img src="img/kitten1.jpg" />
+		<img src="img/puppy1.jpg" />
+		<img src="img/kitten2.jpg" />
+		<img src="img/puppy2.jpg" />
+		<img src="img/kitten3.jpg" />
+		<img src="img/puppy3.jpg" />
+	</div>
+	<div id="credits">
+		Credits <a href="http://jquery.malsup.com/cycle2/" target="_blank">Cycle plugin by Malsup</a>
+	</div>
+</body>
+</html>
+
+

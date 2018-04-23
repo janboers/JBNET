@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<style>
+		body {
+			font-family: Verdana, Geneva, sans-serif;
+			font-size: 24px;
+		}
+
+
+		#divResult {
+			background-color: #ffc;
+			width: 300px;
+			height: 100px;
+			border: 1px solid #333;
+			border-radius: 4px;
+		}
+		#divMouseover {
+			background-color: #CCFF66;
+			width: 400px;
+			height: 400px;
+			border: 1px solid #333;
+			border-radius: 4px;
+		}
+	</style>
+	<title>jQuery events</title>
+	<!-- jQuery insluiten -->
+	<script src="../script/jquery-1.9.1.min.js"></script>
+	<script>
+		var teller = 0;
+		$(document).ready(function () {
+			// Klikken op de li afvangen en verwerken
+			// door ontbreken van context-selector in .on() werkt dit NIET voor nieuw ingevoegde li's
+			$('#divMouseover').on('mousemove', function (e) {
+				var posX = e.pageX;
+				var posY = e.pageY;
+				$('#divResult').html('positie X:' + posX + '<br />positie Y: ' + posY);
+			});
+
+
+
+		});
+
+	</script>
+</head>
+
+<body>
+	
+	<div id="divResult"></div>
+	<div id="divMouseover"></div>
+
+</body>
+</html>
+
+

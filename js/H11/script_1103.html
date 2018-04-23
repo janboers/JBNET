@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<style>
+		#divResult {
+			border: 1px solid #999;
+			background-color: #ffc;
+			padding: 4px;
+			width: 200px;
+			height: 200px;
+		}
+	</style>
+	<title>jQuery animations: slideUp en slideDown</title>
+	<!-- jQuery insluiten -->
+	<script src="../script/jquery-1.9.1.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			// divResult omhoog schuiven na klik op knop
+			$('#btnSlideUp').on('click', function () {
+				$('#divResult').slideUp();
+			});
+
+			// divResult omlaag schuiven na klik op knop
+			$('#btnSlideDown').on('click', function () {
+				$('#divResult').slideDown();
+			});
+		});
+
+	</script>
+</head>
+
+<body>
+	<div id="divResult">Tekst in de div</div>
+	<button id="btnSlideUp">Verbergen</button>
+	<button id="btnSlideDown">Tonen</button>
+	<!--Snelheid: <select>
+		<option value="slow" selected>Slow</option>
+		<option value="fast">Fast</option>
+	</select>-->
+</body>
+</html>
+
+
